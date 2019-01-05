@@ -1,15 +1,23 @@
-    var w = 500;
-    var h = 500;
+    var w = 600;
+    var h = 200;
     var barPadding = 1;
     var dataset = [
         450, 100, 100, 279, 500, 25, 350, 120, 80, 130,
-        110, 102, 375, 200, 175, 168, 180, 230, 205,600, 
+        110, 102, 375, 200, 175, 168, 180, 230, 205,600, 1500
     ];
      //scales important
      
+    //  var scale = d3.scale.linear()
+    //             .domain([0, 600 ])
+    //             .range([0, 500 ])
+    
+    //use d3.max to prevent problematic future changes outside of the scope
+    
+    //linear is for numbers
+    
      var scale = d3.scale.linear()
-                .domain([0, 600 ])
-                .range([0, 500 ])
+                .domain([0, d3.max(dataset) ])
+                .range([0, h ])
      
     var colWidth = w / dataset.length;
     var barWidth = colWidth - barPadding;
